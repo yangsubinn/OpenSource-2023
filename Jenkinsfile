@@ -11,8 +11,8 @@ pipeline {
                 sh 'pwd'
                 sh 'whoami'
 		sh 'ls'
-		sh 'systemctl status docker'
-		sh 'systemctl restart docker'
+		sh 'cat /etc/passwd'
+		sh 'ls /home/'
             }
 	}
         stage('Build Image~') {
