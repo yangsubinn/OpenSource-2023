@@ -13,14 +13,15 @@ pipeline {
 		sh 'ls'
 		sh 'cat /etc/passwd'
 		sh 'ls /home/'
+		sh 'ls /var/run/'
             }
 	}
 	stage('Setting Docker') {
 	    steps {
-		sh 'sudo apt update'
-		sh 'sudo apt install docker.io'
-		sh 'sudo systemctl start docker'
-		sh 'sudo usermod -aG docker $USER'
+		sh 'apt update'
+		sh 'apt install docker.io'
+		sh 'systemctl start docker'
+		sh 'usermod -aG docker $USER'
 		sh 'docker --version'
             }
 	}
