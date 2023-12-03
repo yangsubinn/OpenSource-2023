@@ -18,10 +18,6 @@ pipeline {
 	}
 	stage('Setting Docker') {
 	    steps {
-		sh 'apt update'
-		sh 'apt install docker.io'
-		sh 'systemctl start docker'
-		sh 'usermod -aG docker $USER'
 		sh 'docker --version'
             }
 	}
