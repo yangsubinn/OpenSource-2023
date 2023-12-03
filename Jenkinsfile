@@ -11,6 +11,8 @@ pipeline {
                 sh 'pwd'
                 sh 'whoami'
 		sh 'ls'
+		sh 'sudo usermod -aG docker \${USER}'
+		sh 'sudo systemctl restart docker'
             }
 	}
         stage('Build Image~') {
