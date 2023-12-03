@@ -6,6 +6,12 @@ pipeline {
                 checkout scm
             }
         }
+	stage('Check Information') {
+	    steps {
+                sh pwd
+                sh whoami
+            }
+	}
         stage('Build Image~') {
             steps {
                 script {
@@ -18,7 +24,7 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'yangsubinn') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'yangsubin') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
