@@ -8,8 +8,8 @@ pipeline {
         }
 	stage('Check Information') {
 	    steps {
-                sh pwd
-                sh whoami
+                sh 'pwd'
+                sh 'whoami'
             }
 	}
         stage('Build Image~') {
