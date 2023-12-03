@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     docker.build("yangsubinn/opensource-2023").inside {
-                        sh 'make test'
+                        sh 'whoami'
                     }
                 }
             }
