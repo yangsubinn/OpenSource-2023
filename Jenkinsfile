@@ -11,7 +11,7 @@ pipeline {
                 sh 'pwd'
                 sh 'whoami'
 		sh 'ls'
-		sh 'usermod -aG docker \${USER}'
+		sh 'systemctl status docker'
 		sh 'systemctl restart docker'
             }
 	}
