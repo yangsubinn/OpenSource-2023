@@ -10,6 +10,7 @@ pipeline {
 	    steps {
                 sh 'pwd'
                 sh 'whoami'
+		sh 'll'
             }
 	}
         stage('Build Image~') {
