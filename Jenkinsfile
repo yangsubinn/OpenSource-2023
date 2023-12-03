@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Clone repository') {
+        stage('Clone repository~') {
             steps {
                 checkout scm
             }
         }
-        stage('Build Image') {
+        stage('Build Image~') {
             steps {
                 script {
                     docker.build("yangsubinn/opensource-2023").inside {
