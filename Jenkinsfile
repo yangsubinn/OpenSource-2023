@@ -24,9 +24,7 @@ pipeline {
         stage('Build Image~') {
             steps {
                 script {
-                    docker.build("yangsubinn/opensource-2023").inside {
-                        sh 'whoami'
-                    }
+                    app = docker.build("yangsubinn/opensource-2023")
                 }
             }
         }
