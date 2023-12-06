@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yangsubinn
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yangsubinn
+  template:
+    metadata:
+      labels:
+        app: yangsubinn
+    spec:
+      containers:
+      - name: yangsubinn
+        image: yangsubinn/opensource-2023:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
