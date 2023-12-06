@@ -49,7 +49,7 @@ pipeline {
 			branch 'master'
 		}
 		step {
-			sh "sed -i 's/opensource-2023:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
+			sh "sed -i 's/yangsubinn:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME,
 location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID,
 verifyDeployments: true])
