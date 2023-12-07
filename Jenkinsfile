@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-	  PROJECT_ID = 'OpenSource-2023'
+	  PROJECT_ID = 'opensource-2023'
 	  CLUSTER_NAME = 'kube'
 	  LOCATION = 'asia-northeast3-a'
 	  CREDENTIALS_ID = 'e6a04429-c27f-40d5-8083-d3f37d93e7dd'
