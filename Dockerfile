@@ -10,5 +10,5 @@ ENV APACHE_RUN_DIR /var/www/html
 
 RUN echo 'Hello, subin' > /var/www/index.html
 
-ENTRYPOINT["/usr/sbin/apache2"]
+ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["apache2ctl", "-D", "FOREGROUND"]
