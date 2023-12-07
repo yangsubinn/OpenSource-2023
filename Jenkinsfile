@@ -4,7 +4,7 @@ pipeline {
 	  PROJECT_ID = 'opensource-2023'
 	  CLUSTER_NAME = 'kube'
 	  LOCATION = 'asia-northeast3-a'
-	  CREDENTIALS_ID = 'gke'
+	  CREDENTIALS_ID = 'gkee'
     }
     stages {
         stage('Clone repository~') {
