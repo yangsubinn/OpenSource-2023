@@ -4,7 +4,7 @@ pipeline {
 	  PROJECT_ID = 'OpenSource-2023'
 	  CLUSTER_NAME = 'kube'
 	  LOCATION = 'asia-northeast3-a'
-	  CREDENTIALS_ID = 'gkee'
+	  CREDENTIALS_ID = 'e6a04429-c27f-40d5-8083-d3f37d93e7dd'
     }
     stages {
         stage('Clone repository~') {
@@ -48,21 +48,21 @@ pipeline {
             when {
 			branch 'master'
             }
+/*
 		stpes {
-			sh "gcloud config set project $(PROJECT_ID)"
-			sh "gcloud config set compute/zone $(LOCATION)"
-			sh "gcloud container clusters get-credentials $(CLUSTER_NAME)"
+			sh "gcloud config set project ${PROJECT_ID}"
+			sh "gcloud config set compute/zone ${LOCATION}"
+			sh "gcloud container clusters get-credentials ${CLUSTER_NAME}"
 			
 			sh "sed -i 's/opensource-2023:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
 
 			sh "kubectl apply -f deployment.yaml"
 		}
-/*
+*/
             steps {
 			sh "sed -i 's/opensource-2023:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
 			step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
-*/
         }
     }
 }
