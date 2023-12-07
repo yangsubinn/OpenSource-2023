@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    envirionment {
+    environment {
 	  PROJECT_ID = 'opensource-2023'
 	  CLUSTER_NAME = 'kube'
 	  LOCATION = 'asia-northeast3-a'
@@ -12,21 +12,21 @@ pipeline {
                 checkout scm
             }
         }
-	stage('Check Information') {
-	    steps {
-		sh 'pwd'
-		sh 'whoami'
-		sh 'ls'
-		sh 'cat /etc/passwd'
-		sh 'ls /home/'
-		sh 'ls /var/run/'
+        stage('Check Information') {
+            steps {
+                sh 'pwd'
+                sh 'whoami'
+                sh 'ls'
+                sh 'cat /etc/passwd'
+                sh 'ls /home/'
+                sh 'ls /var/run/'
             }
-	}
-	stage('Setting Docker') {
-	    steps {
-		sh 'docker --version'
+        }
+        stage('Setting Docker') {
+            steps {
+                sh 'docker --version'
             }
-	}
+        }
         stage('Build Image~') {
             steps {
                 script {
@@ -44,16 +44,16 @@ pipeline {
                 }
             }
         }
-	  stage('Deploy to GKE') {
+        stage('Deploy to GKE') {
             when {
-			branch 'master'
-		}
-		step {
-			sh "sed -i 's/yangsubinn:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
-step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME,
-location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID,
-verifyDeployments: true])
-		}
+                branch 'master'
+            }
+            steps {
+                sh "sed -i 's/yangsubinn:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
+    step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME,
+    location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID,
+    verifyDeployments: true])
+            }
         }
     }
 }
