@@ -16,7 +16,7 @@ COPY . /app/
 WORKDIR /app/
 
 # RUN echo 'Hello, subin' > /var/www/html/index.html
-COPY ./app/index.html /var/www/html/index.html
+RUN ls /app/ > /var/www/html/index.html
 
 ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
