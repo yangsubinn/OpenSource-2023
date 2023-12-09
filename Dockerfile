@@ -15,7 +15,7 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
 COPY . /app/
 WORKDIR /app/
 
-RUN echo 'Hello, subin' > /var/www/index.html
+RUN echo 'Hello, subin' > /var/www/html/index.html
 
 ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["-D", "FOREGROUND"]

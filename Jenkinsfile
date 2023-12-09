@@ -48,17 +48,6 @@ pipeline {
             when {
 			branch 'master'
             }
-/*
-		stpes {
-			sh "gcloud config set project ${PROJECT_ID}"
-			sh "gcloud config set compute/zone ${LOCATION}"
-			sh "gcloud container clusters get-credentials ${CLUSTER_NAME}"
-			
-			sh "sed -i 's/opensource-2023:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
-
-			sh "kubectl apply -f deployment.yaml"
-		}
-*/
             steps {
 			sh "sed -i 's/opensource-2023:latest/opensource-2023:${env.BUILD_ID}/g' deployment.yaml"
 			step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
