@@ -15,8 +15,8 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
 COPY . /app/
 WORKDIR /app/
 
-RUN cp -R css /var/www/html
-RUN cp -R js /var/www/html
+RUN cp -R /app/css /var/www/html
+RUN cp -R /app/js /var/www/html
 RUN cat index.html > /var/www/html/index.html
 
 ENTRYPOINT ["/usr/sbin/apache2"]
