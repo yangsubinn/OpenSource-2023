@@ -15,12 +15,10 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
 COPY . /app/
 WORKDIR /app/
 
-RUN ls
-RUN pwd
 RUN cat index.html > /var/www/html/index.html
-COPY /app/css /var/www/html
-COPY /app/js /var/www/html
-COPY assets /var/www/html
+COPY ./css /var/www/html
+COPY ./js /var/www/html
+COPY ./assets /var/www/html
 
 ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
