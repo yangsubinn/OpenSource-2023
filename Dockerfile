@@ -15,8 +15,6 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
 COPY . /app/
 WORKDIR /app/
 
-# RUN echo 'Hello, subin' > /var/www/html/index.html
-# COPY index.html > /var/www/html/index.html
 RUN cat index.html > /var/www/html/index.html
 
 ENTRYPOINT ["/usr/sbin/apache2"]
