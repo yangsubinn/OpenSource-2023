@@ -11,9 +11,9 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
     # mkdir -p /app \
-    mkdir -p /var/www/html/css && \
-    mkdir -p /var/www/html/js && \
-    mkdir -p /var/www/html/assets
+    # mkdir -p /var/www/html/css && \
+    # mkdir -p /var/www/html/js && \
+    # mkdir -p /var/www/html/assets
     
 # COPY . /app/
 COPY . /var/www/html
