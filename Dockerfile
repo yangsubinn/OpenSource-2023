@@ -19,7 +19,7 @@ RUN echo $(pwd)
 COPY ./index.html /var/www/html/index.html
 COPY ./css /var/www/html/css
 COPY ./js /var/www/html/js
-COPY ./assets > /var/www/html/assets
+COPY ./assets /var/www/html/assets
 
 # RUN cat index.html > /var/www/html/index.html
 # COPY css /var/www/html
