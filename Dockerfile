@@ -14,10 +14,12 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
     
 COPY . /app/
 WORKDIR /app/
-COPY index.html > /var/www/html/index.html
-COPY css > /var/www/html
-COPY js > /var/www/html
-COPY assets > /var/www/html
+RUN echo $(ls)
+RUN echo $(pwd)
+COPY ./index.html /var/www/html/index.html
+COPY ./css /var/www/html/css
+COPY ./js /var/www/html/js
+COPY ./assets > /var/www/html/assets
 
 # RUN cat index.html > /var/www/html/index.html
 # COPY css /var/www/html
