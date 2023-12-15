@@ -10,7 +10,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install build-essential && apt-get install -y apache2 && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
-    mkdir -p /app
+    mkdir -p /app \
+    mkdir -p /var/www/html/css \
+    mkdir -p /var/www/html/js \
+    mkdir -p /var/www/html/assets
     
 COPY . /app/
 WORKDIR /app/
