@@ -12,6 +12,7 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
 RUN echo "AddType 'text/css; charset=UTF-8' .css" >> /etc/apache2/apache2.conf && \
     echo "AddType text/javascript .js" >> /etc/apache2/apache2.conf
 RUN sed -i 's/AllowOverride None/AllowOVerride All/g' /etc/apache2/apache2.conf
+RUN sed -i 's/# IncludeOptional conf-enabled/*.conf/IncludeOptional conf-enabled/*.conf/g'
 COPY . /var/www/html
 WORKDIR /var/www/html
 
