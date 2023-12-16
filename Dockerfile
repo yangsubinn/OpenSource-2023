@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install build-essential && apt-get install -y apache2 && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone 
-RUN echo "AddType 'text/css; charset=UTF-8' .css" >> /etc/apache2/apache2.conf && \
+RUN echo "AddType text/css .css" >> /etc/apache2/apache2.conf && \
     echo "AddType text/javascript .js" >> /etc/apache2/apache2.conf && \
     echo "AccessFileName .htaccess" >> /etc/apache2/apache2.conf
 RUN sed -i 's/AllowOverride None/AllowOVerride All/g' /etc/apache2/apache2.conf
