@@ -11,9 +11,8 @@ RUN apt-get update && apt-get -y install build-essential && apt-get install -y a
     echo $TZ > /etc/timezone 
 RUN echo "AddType text/css .css" >> /etc/apache2/apache2.conf && \
     echo "AddType text/javascript .js" >> /etc/apache2/apache2.conf && \
-    echo "AccessFileName .htaccess" >> /etc/apache2/apache2.conf
-RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
-RUN sed -i '/conf-enabled/s/^# //g' /etc/apache2/apache2.conf
+RUN sed -i '/AllowOverride/s/None/All/g' /etc/apache2/apache2.conf
+RUN sed -i '/conf-enabled/s/^#//g' /etc/apache2/apache2.conf
 COPY . /var/www/html
 WORKDIR /var/www/html
 
